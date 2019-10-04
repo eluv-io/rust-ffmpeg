@@ -206,6 +206,8 @@ pub enum Id {
     DXV,
     SCREENPRESSO,
     RSCC,
+    AVS2,
+
 
     Y41P,
     AVRP,
@@ -442,6 +444,8 @@ pub enum Id {
     PJS,
     ASS,
     HDMV_TEXT_SUBTITLE,
+    TTML,
+
 
     // other specific kind of codecs (generally used for attachments)
     TTF,
@@ -473,6 +477,8 @@ pub enum Id {
     AV1,
     PCM_F16LE,
     PCM_F24LE,
+    PCM_VIDC,
+
     ATRAC3AL,
     ATRAC3PAL,
 
@@ -482,6 +488,13 @@ pub enum Id {
     SVG,
     GDV,
     FITS,
+    IMM4,
+    PROSUMER,
+    MWSC,
+    WCMV,
+    RASC,
+    HYMT,
+
     GREMLIN_DPCM,
     DOLBY_E,
     #[cfg(feature = "ffmpeg4")]
@@ -490,6 +503,8 @@ pub enum Id {
     APTX_HD,
     #[cfg(feature = "ffmpeg4")]
     SBC,
+    ATRAC9,
+
 }
 
 impl Id {
@@ -701,6 +716,8 @@ impl From<AVCodecID> for Id {
             AV_CODEC_ID_DXV => Id::DXV,
             AV_CODEC_ID_SCREENPRESSO => Id::SCREENPRESSO,
             AV_CODEC_ID_RSCC => Id::RSCC,
+            AV_CODEC_ID_AVS2 => Id::AVS2,
+
 
             AV_CODEC_ID_Y41P => Id::Y41P,
             AV_CODEC_ID_AVRP => Id::AVRP,
@@ -935,6 +952,8 @@ impl From<AVCodecID> for Id {
             AV_CODEC_ID_PJS => Id::PJS,
             AV_CODEC_ID_ASS => Id::ASS,
             AV_CODEC_ID_HDMV_TEXT_SUBTITLE => Id::HDMV_TEXT_SUBTITLE,
+            AV_CODEC_ID_TTML => Id::TTML,
+
 
             /* other specific kind of codecs (generally used for attachments) */
             AV_CODEC_ID_TTF => Id::TTF,
@@ -965,6 +984,8 @@ impl From<AVCodecID> for Id {
             AV_CODEC_ID_AV1 => Id::AV1,
             AV_CODEC_ID_PCM_F16LE => Id::PCM_F16LE,
             AV_CODEC_ID_PCM_F24LE => Id::PCM_F24LE,
+            AV_CODEC_ID_PCM_VIDC => Id::PCM_VIDC,
+
             AV_CODEC_ID_ATRAC3AL => Id::ATRAC3AL,
             AV_CODEC_ID_ATRAC3PAL => Id::ATRAC3PAL,
 
@@ -974,6 +995,13 @@ impl From<AVCodecID> for Id {
             AV_CODEC_ID_SVG => Id::SVG,
             AV_CODEC_ID_GDV => Id::GDV,
             AV_CODEC_ID_FITS => Id::FITS,
+            AV_CODEC_ID_IMM4 => Id::IMM4,
+            AV_CODEC_ID_PROSUMER => Id::PROSUMER,
+            AV_CODEC_ID_MWSC => Id::MWSC,
+            AV_CODEC_ID_WCMV => Id::WCMV,
+            AV_CODEC_ID_RASC => Id::RASC,
+            AV_CODEC_ID_HYMT => Id::HYMT,
+
             AV_CODEC_ID_GREMLIN_DPCM => Id::GREMLIN_DPCM,
             AV_CODEC_ID_DOLBY_E => Id::DOLBY_E,
             #[cfg(feature = "ffmpeg4")]
@@ -982,6 +1010,8 @@ impl From<AVCodecID> for Id {
             AV_CODEC_ID_APTX_HD => Id::APTX_HD,
             #[cfg(feature = "ffmpeg4")]
             AV_CODEC_ID_SBC => Id::SBC,
+            AV_CODEC_ID_ATRAC9 => Id::ATRAC9,
+
         }
     }
 }
@@ -1187,6 +1217,8 @@ impl Into<AVCodecID> for Id {
             Id::DXV => AV_CODEC_ID_DXV,
             Id::SCREENPRESSO => AV_CODEC_ID_SCREENPRESSO,
             Id::RSCC => AV_CODEC_ID_RSCC,
+            Id::AVS2 => AV_CODEC_ID_AVS2,
+
 
             Id::Y41P => AV_CODEC_ID_Y41P,
             Id::AVRP => AV_CODEC_ID_AVRP,
@@ -1423,6 +1455,8 @@ impl Into<AVCodecID> for Id {
             Id::PJS => AV_CODEC_ID_PJS,
             Id::ASS => AV_CODEC_ID_ASS,
             Id::HDMV_TEXT_SUBTITLE => AV_CODEC_ID_HDMV_TEXT_SUBTITLE,
+            Id::TTML => AV_CODEC_ID_TTML,
+
 
             /* other specific kind of codecs (generally used for attachments) */
             Id::TTF => AV_CODEC_ID_TTF,
@@ -1454,6 +1488,8 @@ impl Into<AVCodecID> for Id {
             Id::AV1 => AV_CODEC_ID_AV1,
             Id::PCM_F16LE => AV_CODEC_ID_PCM_F16LE,
             Id::PCM_F24LE => AV_CODEC_ID_PCM_F24LE,
+            Id::PCM_VIDC => AV_CODEC_ID_PCM_VIDC,
+
             Id::ATRAC3AL => AV_CODEC_ID_ATRAC3AL,
             Id::ATRAC3PAL => AV_CODEC_ID_ATRAC3PAL,
 
@@ -1463,6 +1499,13 @@ impl Into<AVCodecID> for Id {
             Id::SVG => AV_CODEC_ID_SVG,
             Id::GDV => AV_CODEC_ID_GDV,
             Id::FITS => AV_CODEC_ID_FITS,
+            Id::IMM4 => AV_CODEC_ID_IMM4 ,
+            Id::PROSUMER => AV_CODEC_ID_PROSUMER,
+            Id::MWSC => AV_CODEC_ID_MWSC,
+            Id::WCMV => AV_CODEC_ID_WCMV,
+            Id::RASC => AV_CODEC_ID_RASC,
+            Id::HYMT => AV_CODEC_ID_HYMT,
+
             Id::GREMLIN_DPCM => AV_CODEC_ID_GREMLIN_DPCM,
             Id::DOLBY_E => AV_CODEC_ID_DOLBY_E,
             #[cfg(feature = "ffmpeg4")]
@@ -1471,6 +1514,8 @@ impl Into<AVCodecID> for Id {
             Id::APTX_HD => AV_CODEC_ID_APTX_HD,
             #[cfg(feature = "ffmpeg4")]
             Id::SBC => AV_CODEC_ID_SBC,
+            Id::ATRAC9 => AV_CODEC_ID_ATRAC9,
+
         }
     }
 }

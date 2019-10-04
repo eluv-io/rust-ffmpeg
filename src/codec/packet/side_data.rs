@@ -37,6 +37,8 @@ pub enum Type {
     EncryptionInitInfo,
     #[cfg(feature = "ffmpeg4")]
     EncryptionInfo,
+    Afd,
+
 }
 
 impl From<AVPacketSideDataType> for Type {
@@ -72,6 +74,8 @@ impl From<AVPacketSideDataType> for Type {
             AV_PKT_DATA_ENCRYPTION_INIT_INFO => Type::EncryptionInitInfo,
             #[cfg(feature = "ffmpeg4")]
             AV_PKT_DATA_ENCRYPTION_INFO => Type::EncryptionInfo,
+            AV_PKT_DATA_AFD => Type::Afd,
+
         }
     }
 }
@@ -109,6 +113,8 @@ impl Into<AVPacketSideDataType> for Type {
             Type::EncryptionInitInfo => AV_PKT_DATA_ENCRYPTION_INIT_INFO,
             #[cfg(feature = "ffmpeg4")]
             Type::EncryptionInfo => AV_PKT_DATA_ENCRYPTION_INFO,
+            Type::Afd => AV_PKT_DATA_AFD,
+
         }
     }
 }
