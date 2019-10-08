@@ -964,7 +964,7 @@ impl error::Error for ParsePixelError {
         }
     }
 
-    fn cause(&self) -> Option<&error::Error> {
+    fn cause(&self) -> Option<&dyn error::Error> {
         match *self {
             ParsePixelError::NulError(ref e) => Some(e),
             ParsePixelError::UnknownFormat => None,
