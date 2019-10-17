@@ -150,6 +150,8 @@ pub enum Pixel {
     NV16,
     NV20LE,
     NV20BE,
+    NV24,
+    NV42,
 
     RGBA64BE,
     RGBA64LE,
@@ -510,6 +512,9 @@ impl From<AVPixelFormat> for Pixel {
             AV_PIX_FMT_NV16 => Pixel::NV16,
             AV_PIX_FMT_NV20LE => Pixel::NV20LE,
             AV_PIX_FMT_NV20BE => Pixel::NV20BE,
+            AV_PIX_FMT_NV24 => Pixel::NV24,
+            AV_PIX_FMT_NV42 => Pixel::NV42,
+
 
             AV_PIX_FMT_RGBA64BE => Pixel::RGBA64BE,
             AV_PIX_FMT_RGBA64LE => Pixel::RGBA64LE,
@@ -765,6 +770,8 @@ impl Into<AVPixelFormat> for Pixel {
             Pixel::NV16 => AV_PIX_FMT_NV16,
             Pixel::NV20LE => AV_PIX_FMT_NV20LE,
             Pixel::NV20BE => AV_PIX_FMT_NV20BE,
+            Pixel::NV24 => AV_PIX_FMT_NV24,
+            Pixel::NV42 => AV_PIX_FMT_NV42,
 
             Pixel::RGBA64BE => AV_PIX_FMT_RGBA64BE,
             Pixel::RGBA64LE => AV_PIX_FMT_RGBA64LE,
